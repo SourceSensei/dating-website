@@ -1,40 +1,38 @@
-<section class="p-6 dark:bg-gray-800 dark:text-gray-100">
+<script>
+	import { Card } from 'flowbite-svelte';
+</script>
+
+<section class="p-10 text-white mt-10">
 	<div class="container mx-auto">
-		<span class="block mb-2 text-xs font-medium tracki text-center uppercase dark:text-violet-400"
-			>How it works</span
-		>
 		<h2 class="text-5xl font-bold text-center dark:text-gray-50">Building with Mamba is simple</h2>
 		<div class="grid gap-6 my-16 lg:grid-cols-3">
-			<div class="flex flex-col p-8 space-y-4 rounded-md dark:bg-gray-900">
-				<div
-					class="flex items-center justify-center flex-shrink-0 w-12 h-12 text-xl font-bold rounded-full dark:bg-violet-400 dark:text-gray-900"
-				>
-					1
-				</div>
-				<p class="text-2xl font-semibold">
-					<b>Nulla.</b>Nostrum, corrupti blanditiis. Illum, architecto?
+			<Card href="/cards">
+				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+					Noteworthy technology acquisitions 2021
+				</h5>
+				<p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">
+					Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
+					chronological order.
 				</p>
-			</div>
-			<div class="flex flex-col p-8 space-y-4 rounded-md dark:bg-gray-900">
-				<div
-					class="flex items-center justify-center flex-shrink-0 w-12 h-12 text-xl font-bold rounded-full dark:bg-violet-400 dark:text-gray-900"
-				>
-					2
-				</div>
-				<p class="text-2xl font-semibold">
-					<b>Accusantium.</b>Vitae saepe atque neque sunt eius dolor veniam alias debitis?
+			</Card>
+			<Card href="/cards">
+				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+					Noteworthy technology acquisitions 2021
+				</h5>
+				<p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">
+					Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
+					chronological order.
 				</p>
-			</div>
-			<div class="flex flex-col p-8 space-y-4 rounded-md dark:bg-gray-900">
-				<div
-					class="flex items-center justify-center flex-shrink-0 w-12 h-12 text-xl font-bold rounded-full dark:bg-violet-400 dark:text-gray-900"
-				>
-					3
-				</div>
-				<p class="text-2xl font-semibold">
-					<b>Maxime.</b>Expedita temporibus culpa reprehenderit doloribus consectetur odio!
+			</Card>
+			<Card href="/cards">
+				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+					Noteworthy technology acquisitions 2021
+				</h5>
+				<p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">
+					Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
+					chronological order.
 				</p>
-			</div>
+			</Card>
 		</div>
 	</div>
 </section>

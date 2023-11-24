@@ -1,49 +1,56 @@
-<section class="dark:bg-gray-800 dark:text-gray-100">
+<script>
+	import { AccordionItem, Accordion, Button } from 'flowbite-svelte';
+	const items = Array(3);
+
+	const open_all = () => items.forEach((_, i) => (items[i] = true));
+	const close_all = () => items.forEach((_, i) => (items[i] = false));
+</script>
+
+<section class="text-white">
 	<div class="container flex flex-col justify-center p-4 mx-auto md:p-8">
 		<p class="p-2 text-sm font-medium tracki text-center uppercase">How it works</p>
 		<h2 class="mb-12 text-4xl font-bold leadi text-center sm:text-5xl">
 			Frequently Asked Questions
 		</h2>
-		<div class="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 dark:divide-gray-700">
-			<details>
-				<summary class="py-2 outline-none cursor-pointer focus:underline"
-					>Optio maiores eligendi molestiae totam dolores similique?</summary
-				>
-				<div class="px-4 pb-4">
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque in fugiat magni,
-						quas animi enim veritatis deleniti ex. Impedit.
+		<div>
+			<Button on:click={open_all} class="bg-gradient-to-br from-fuchsia-500 to-sky-600 shadow-md">Open all</Button>
+			<Button on:click={close_all} class="bg-gradient-to-br from-fuchsia-500 to-sky-600 shadow-md">Close all</Button>
+			<Accordion multiple class="bg-gradient-to-br from-fuchsia-500 to-sky-600">
+				<AccordionItem bind:open={items[0]}>
+					<span slot="header" class="text-white">My Header 1</span>
+					<p class="mb-2 text-white">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint
+						explicabo ...
 					</p>
-				</div>
-			</details>
-			<details>
-				<summary class="py-2 outline-none cursor-pointer focus:underline"
-					>Modi dolorem veritatis culpa quos consequuntur beatae itaque excepturi perspiciatis?</summary
-				>
-				<div class="px-4 pb-4">
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Est aspernatur quae, eos
-						explicabo odit minima libero veniam similique quibusdam doloribus facilis ipsa
-						accusantium vel maiores corrupti! Libero voluptate a doloribus?
+					<p class="text-white">
+						Check out this guide to learn how to <a
+							href="/"
+							target="_blank"
+							rel="noreferrer"
+							class="text-blue-600 dark:text-blue-500 hover:underline"
+						>
+							get started
+						</a>
+						and start developing websites even faster with components on top of Tailwind CSS.
 					</p>
-				</div>
-			</details>
-			<details>
-				<summary class="py-2 outline-none cursor-pointer focus:underline"
-					>Magni reprehenderit possimus debitis?</summary
-				>
-				<div class="px-4 pb-4 space-y-2">
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptates aspernatur
-						dolores in consequatur doloremque inventore reprehenderit, consequuntur perspiciatis
-						architecto.
+				</AccordionItem>
+				<AccordionItem bind:open={items[1]}>
+					<div slot="header" class="text-white">My Header 2</div>
+					<p class="mb-2 text-white">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint
+						explicabo ...
 					</p>
-					<p>
-						Sed consectetur quod tenetur! Voluptatibus culpa incidunt veritatis velit quasi
-						cupiditate unde eaque! Iure, voluptatibus autem eaque unde possimus quae.
+					<p class="mb-2 text-white">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ab necessitatibus sint
+						explicabo ...
 					</p>
-				</div>
-			</details>
+					<p class="mb-2 text-white">Learn more about these technologies:</p>
+				</AccordionItem>
+				<AccordionItem bind:open={items[2]}>
+					<div slot="header" class="text-white">My Header 3</div>
+					<p class=" text-white">Something more</p>
+				</AccordionItem>
+			</Accordion>
 		</div>
 	</div>
 </section>

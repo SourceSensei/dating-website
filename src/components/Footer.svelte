@@ -1,4 +1,4 @@
-<footer class="px-4 py-8 dark:bg-gray-800 dark:text-gray-400">
+<footer class="px-4 py-8 text-white">
 	<div
 		class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0"
 	>

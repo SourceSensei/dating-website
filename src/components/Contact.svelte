@@ -1,4 +1,25 @@
-<section class="py-6 dark:bg-gray-500 dark:text-gray-50">
+<script>
+	import { Label, Input, InputAddon, ButtonGroup, Select, Textarea } from 'flowbite-svelte';
+	import { UserCircleSolid, EnvelopeSolid } from 'flowbite-svelte-icons';
+
+	let selected;
+
+	let countries = [
+		{ value: 'ml', name: 'male' },
+		{ value: 'fl', name: 'female' },
+		{ value: 'ot', name: 'other' }
+	];
+
+	let textareaprops = {
+		id: 'message',
+		name: 'message',
+		label: 'Your message',
+		rows: 4,
+		placeholder: 'Leave a message...'
+	};
+</script>
+
+<section class="py-6 text-white">
 	<div class="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
 		<div class="py-6 md:py-0 md:px-6">
 			<h1 class="text-4xl font-bold">Get in touch</h1>
@@ -46,35 +67,86 @@
 				</p>
 			</div>
 		</div>
-		<form novalidate="" class="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
-			<label class="block">
-				<span class="mb-1">Full name</span>
-				<input
-					type="text"
-					placeholder="Leroy Jenkins"
-					class="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800"
-				/>
-			</label>
-			<label class="block">
-				<span class="mb-1">Email address</span>
-				<input
-					type="email"
-					placeholder="leroy@jenkins.com"
-					class="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800"
-				/>
-			</label>
-			<label class="block">
-				<span class="mb-1">Message</span>
-				<textarea
-					rows="3"
-					class="block w-full rounded-md focus:ring focus:ri focus:ri dark:bg-gray-800"
-				></textarea>
-			</label>
-			<button
-				type="button"
-				class="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ri dark:bg-violet-400 dark:text-gray-900 focus:ri hover:ri"
-				>Submit</button
-			>
+		<form action="" class="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
+			<div class="mb-6">
+				<Label for="website-admin" class="block mb-2 text-white">Username</Label>
+				<ButtonGroup class="w-full">
+					<InputAddon>
+						<UserCircleSolid class="w-4 h-4 text-gray-500 dark:text-gray-400" />
+					</InputAddon>
+					<Input id="website-admin" placeholder="username" />
+				</ButtonGroup>
+			</div>
+			<Label class="text-white">
+				Gender
+				<Select class="mt-2" items={countries} bind:value={selected} />
+			</Label>
+			<div class="mb-6">
+				<Label for="input-group-1" class="block mb-2 text-white">Your Email</Label>
+				<Input id="email" type="email" placeholder="name@flowbite.com">
+					<EnvelopeSolid slot="left" class="w-5 h-5 text-gray-500 dark:text-gray-400" />
+				</Input>
+			</div>
+			<Textarea {...textareaprops} />
+			<div>
+				<button type="button">Submit</button>
+			</div>
 		</form>
 	</div>
 </section>
+
+<style>
+	button {
+		text-decoration: none;
+		position: relative;
+		border: none;
+		font-size: 14px;
+		font-family: inherit;
+		color: #fff;
+		width: 9em;
+		height: 3em;
+		line-height: 2em;
+		text-align: center;
+		background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+		background-size: 300%;
+		border-radius: 30px;
+		z-index: 1;
+	}
+
+	button:hover {
+		animation: ani 8s linear infinite;
+		border: none;
+	}
+
+	@keyframes ani {
+		0% {
+			background-position: 0%;
+		}
+
+		100% {
+			background-position: 400%;
+		}
+	}
+
+	button:before {
+		content: '';
+		position: absolute;
+		top: -5px;
+		left: -5px;
+		right: -5px;
+		bottom: -5px;
+		z-index: -1;
+		background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+		background-size: 400%;
+		border-radius: 35px;
+		transition: 1s;
+	}
+
+	button:hover::before {
+		filter: blur(20px);
+	}
+
+	button:active {
+		background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+	}
+</style>
