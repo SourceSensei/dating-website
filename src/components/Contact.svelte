@@ -1,6 +1,7 @@
 <script>
 	import { Label, Input, InputAddon, ButtonGroup, Select, Textarea } from 'flowbite-svelte';
 	import { UserCircleSolid, EnvelopeSolid } from 'flowbite-svelte-icons';
+	import emailjs from '@emailjs/browser';
 
 	let selected;
 
@@ -17,6 +18,17 @@
 		rows: 4,
 		placeholder: 'Leave a message...'
 	};
+
+	function sendEmail(e) {
+		emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_PUBLIC_KEY').then(
+			(result) => {
+				console.log('SUCCESS!', result.text);
+			},
+			(error) => {
+				console.log('FAILED...', error.text);
+			}
+		);
+	}
 </script>
 
 <section class="py-6 text-white">
@@ -67,30 +79,28 @@
 				</p>
 			</div>
 		</div>
-		<form action="" class="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
-			<div class="mb-6">
-				<Label for="website-admin" class="block mb-2 text-white">Username</Label>
-				<ButtonGroup class="w-full">
-					<InputAddon>
-						<UserCircleSolid class="w-4 h-4 text-gray-500 dark:text-gray-400" />
-					</InputAddon>
-					<Input id="website-admin" placeholder="username" />
-				</ButtonGroup>
-			</div>
+		<form on:submit|preventDefault={sendEmail} class="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
+			<Label htmlFor="fname" class="block text-white">Full Name</Label>
+			<ButtonGroup class="w-full">
+				<InputAddon>
+					<UserCircleSolid class="w-4 h-4 text-gray-500 dark:text-gray-400" />
+				</InputAddon>
+				<Input id="fname" name="fname" placeholder="Full name" required />
+			</ButtonGroup>
+
 			<Label class="text-white">
 				Gender
-				<Select class="mt-2" items={countries} bind:value={selected} />
+				<Select class="mt-6" items={countries} bind:value={selected} name="gender" />
 			</Label>
 			<div class="mb-6">
-				<Label for="input-group-1" class="block mb-2 text-white">Your Email</Label>
-				<Input id="email" type="email" placeholder="name@flowbite.com">
+				<Label for="input-group-1" class="block mb-6 text-white">Your Email</Label>
+				<Input id="email" type="email" name="email" placeholder="name@flowbite.com" required>
 					<EnvelopeSolid slot="left" class="w-5 h-5 text-gray-500 dark:text-gray-400" />
 				</Input>
 			</div>
 			<Textarea {...textareaprops} />
-			<div>
-				<button type="button">Submit</button>
-			</div>
+
+			<button type="submit" value="Send">Submit</button>
 		</form>
 	</div>
 </section>
