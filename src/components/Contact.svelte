@@ -79,7 +79,10 @@
 				</p>
 			</div>
 		</div>
-		<form on:submit|preventDefault={sendEmail} class="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
+		<form
+			on:submit|preventDefault={sendEmail}
+			class="flex flex-col py-6 space-y-6 md:py-0 md:px-6 items-center"
+		>
 			<Label htmlFor="fname" class="block text-white">Full Name</Label>
 			<ButtonGroup class="w-full">
 				<InputAddon>
@@ -88,11 +91,11 @@
 				<Input id="fname" name="fname" placeholder="Full name" required />
 			</ButtonGroup>
 
-			<Label class="text-white">
+			<Label class="text-white w-full">
 				Gender
 				<Select class="mt-6" items={countries} bind:value={selected} name="gender" />
 			</Label>
-			<div class="mb-6">
+			<div class="mb-6 w-full">
 				<Label for="input-group-1" class="block mb-6 text-white">Your Email</Label>
 				<Input id="email" type="email" name="email" placeholder="name@flowbite.com" required>
 					<EnvelopeSolid slot="left" class="w-5 h-5 text-gray-500 dark:text-gray-400" />
@@ -115,11 +118,12 @@
 		color: #fff;
 		width: 9em;
 		height: 3em;
-		line-height: 2em;
+		line-height: 1.25em;
 		text-align: center;
 		background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
 		background-size: 300%;
-		border-radius: 30px;
+		border-radius: 15px;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		z-index: 1;
 	}
 
@@ -148,7 +152,7 @@
 		z-index: -1;
 		background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
 		background-size: 400%;
-		border-radius: 35px;
+		border-radius: 15px;
 		transition: 1s;
 	}
 

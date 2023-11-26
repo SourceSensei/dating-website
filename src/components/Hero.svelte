@@ -1,8 +1,8 @@
-<section class=" text-white custom-hero">
+<section class="text-white custom-hero flex items-center justify-center">
 	<div
 		class="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl custom-div-content-hero"
 	>
-		<h1 class="text-4xl font-bold leadi sm:text-5xl">
+		<h1 class="text-4xl font-bold leading-none sm:text-5xl">
 			Welcome to our
 			<span class="dark:text-violet-400">amazing</span> website
 		</h1>
@@ -11,7 +11,7 @@
 			explicabo!
 		</p>
 		<div class="flex flex-wrap justify-center">
-			<button> Find Out More </button>
+			<button class="...">Find Out More</button>
 		</div>
 	</div>
 </section>
@@ -40,18 +40,7 @@
 	}
 
 	.custom-div-content-hero {
-		position: absolute;
-		top: 50%;
-		left: 70%;
-		transform: translate(-50%, -50%);
 		z-index: 2;
-	}
-
-	.custom-div-content-hero {
-		position: absolute;
-		top: 50%;
-		left: 70%;
-		transform: translate(-50%, -50%);
 	}
 
 	button {
@@ -63,11 +52,12 @@
 		color: #fff;
 		width: 9em;
 		height: 3em;
-		line-height: 2em;
+		line-height: 1.25em;
 		text-align: center;
 		background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
 		background-size: 300%;
-		border-radius: 30px;
+		border-radius: 15px;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		z-index: 1;
 	}
 
@@ -96,7 +86,7 @@
 		z-index: -1;
 		background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
 		background-size: 400%;
-		border-radius: 35px;
+		border-radius: 15px;
 		transition: 1s;
 	}
 
